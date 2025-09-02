@@ -1,6 +1,6 @@
 from PyQt6.QtWidgets import QGraphicsView, QGraphicsScene
-from PyQt6.QtCore import Qt, QPointF, pyqtSignal
-from PyQt6.QtGui import QPainter, QPen, QColor
+from PyQt6.QtCore import pyqtSignal
+from PyQt6.QtGui import QPainter, QColor, QPen
 from app.node_editor.socket import Socket
 from app.node_editor.edge import Edge
 from app.node_editor.node import Node

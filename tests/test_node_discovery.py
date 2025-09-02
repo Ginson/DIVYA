@@ -1,14 +1,14 @@
-import unittest
 from unittest.mock import patch, MagicMock
-import os
+from nodes.base_node import BaseNode
+from app.node_discovery import get_node_classes
+
 import sys
+import os
+import unittest
 
 sys.path.insert(
     0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
 )
-
-from nodes.base_node import BaseNode
-from app.node_discovery import get_node_classes
 
 
 # --- Mock Node Classes ---

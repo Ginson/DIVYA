@@ -1,6 +1,6 @@
 from PyQt6.QtWidgets import QGraphicsPathItem
 from PyQt6.QtGui import QColor, QPen, QPainterPath
-from PyQt6.QtCore import Qt, QPointF
+from PyQt6.QtCore import QPointF
 
 
 class Edge(QGraphicsPathItem):

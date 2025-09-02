@@ -63,7 +63,8 @@ class PropertiesPanel(QWidget):
         """Handles when a parameter's value is changed in the UI."""
         if self.current_node:
             # Try to convert the value to the correct type (e.g., int, float)
-            # This is a simple implementation; a more robust version would be needed for production
+            # This is a simple implementation; a more robust version would be
+            # needed for production
             try:
                 original_type = type(
                     self.current_node.base_node.param_values[param_name]
@@ -75,7 +76,8 @@ class PropertiesPanel(QWidget):
                 print(f"Set '{param_name}' to {converted_value}")
             except (ValueError, TypeError) as e:
                 print(
-                    f"Invalid value for '{param_name}': {new_value}. Error: {e}"
+                    f"Invalid value for '{param_name}': "
+                    f"{new_value}. Error: {e}"
                 )
 
     def clear_panel(self):

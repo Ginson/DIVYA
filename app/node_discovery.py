@@ -52,7 +52,8 @@ def load_nodes_from_module(module_full_name, node_classes):
                 node_name = obj().name
                 if node_name in node_classes:
                     print(
-                        f"Warning: Duplicate node name '{node_name}' found. Overwriting."
+                        f"Warning: Duplicate node name '"
+                        f"{node_name}' found. Overwriting."
                     )
                 node_classes[node_name] = obj
     except Exception as e:

@@ -48,7 +48,10 @@ class Graph:
             )
 
         # Create a unique identifier for the edge to prevent duplicates
-        edge_id = f"{source_node_id}:{source_output}->{target_node_id}:{target_input}"
+        edge_id = (
+            f"{source_node_id}:{source_output}->"
+            f"{target_node_id}:{target_input}"
+        )
 
         if edge_id in self.edges:
             print(f"Warning: Edge {edge_id} already exists.")
@@ -138,7 +141,7 @@ class Graph:
                 node.id = node_data["id"]
                 node.param_values = node_data["parameters"]
                 if "pos" in node_data:
-                    # This is a bit of a hack, we'll store 
+                    # This is a bit of a hack, we'll store
                     # the position and use it later
                     node.temp_pos = node_data["pos"]
                 self.add_node(node)

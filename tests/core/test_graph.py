@@ -1,5 +1,5 @@
 import unittest
-from app.core.graph import Graph, Edge
+from app.core.graph import Graph
 from nodes.base_node import BaseNode
 
 

@@ -1,5 +1,5 @@
 import unittest
-from unittest.mock import MagicMock, call
+from unittest.mock import MagicMock
 from app.core.engine import Engine
 from app.core.graph import Graph
 from nodes.base_node import BaseNode

@@ -1,7 +1,5 @@
-import sys
 import yaml
 from PyQt6.QtWidgets import (
-    QApplication,
     QMainWindow,
     QWidget,
     QVBoxLayout,
@@ -108,7 +106,8 @@ class MainWindow(QMainWindow):
         target_input_name = end_socket.socket_name
 
         print(
-            f"UI: Adding edge from {source_node_id}:{source_output_name} to {target_node_id}:{target_input_name}"
+            f"UI: Adding edge from {source_node_id}:{source_output_name} to "
+            f"{target_node_id}:{target_input_name}"
         )
         self.graph.add_edge(
             source_node_id,

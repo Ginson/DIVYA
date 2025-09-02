@@ -39,7 +39,8 @@ class BaseNode(QObject, ABC, metaclass=QObjectABCMeta):
     @abstractmethod
     def execute(self, **kwargs) -> dict:
         """
-        The core processing logic of the node. Must be implemented by subclasses.
+        The core processing logic of the node. Must be implemented
+        by subclasses.
         """
         pass
 
@@ -49,7 +50,8 @@ class BaseNode(QObject, ABC, metaclass=QObjectABCMeta):
             self.param_values[param_name] = value
         else:
             raise KeyError(
-                f"Node '{self.name}' has no parameter named '{param_name}'."
+                f"Node '{self.name}' has no "
+                f"parameter named '{param_name}'."
             )
 
     def __repr__(self) -> str:
