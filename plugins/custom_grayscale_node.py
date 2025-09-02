@@ -5,8 +5,10 @@ from typing import Dict
 
 ImageType = np.ndarray
 
+
 class GrayscaleNode(BaseNode):
     """A custom node that converts a color image to grayscale."""
+
     category = "Plugins"
     description = "Converts a color image to grayscale."
 
@@ -24,5 +26,5 @@ class GrayscaleNode(BaseNode):
         else:
             # If it's already grayscale, just pass it through
             result_image = input_image
-            
+
         return {"image": result_image}

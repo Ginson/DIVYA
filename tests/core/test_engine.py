@@ -4,8 +4,10 @@ from app.core.engine import Engine
 from app.core.graph import Graph
 from nodes.base_node import BaseNode
 
+
 class MockNode(BaseNode):
     category = "Test"
+
     def __init__(self, node_id, name="Test Node"):
         super().__init__(name=name, inputs=[], outputs=[])
         self.id = node_id
@@ -13,6 +15,7 @@ class MockNode(BaseNode):
 
     def execute(self, **kwargs):
         return self.execute(**kwargs)
+
 
 class TestEngine(unittest.TestCase):
     def setUp(self):
@@ -28,7 +31,7 @@ class TestEngine(unittest.TestCase):
         self.graph.add_node(self.node3)
         self.graph.add_edge("node1", "output", "node2", "input")
         self.graph.add_edge("node2", "output", "node3", "input")
-        
+
         sorted_nodes = self.engine._topological_sort(self.graph)
         self.assertEqual(sorted_nodes, ["node1", "node2", "node3"])
 
@@ -36,7 +39,7 @@ class TestEngine(unittest.TestCase):
         self.graph.add_node(self.node1)
         self.graph.add_node(self.node2)
         self.graph.add_edge("node1", "output", "node2", "input")
-        self.graph.add_edge("node2", "output", "node1", "input") # Cycle
+        self.graph.add_edge("node2", "output", "node1", "input")  # Cycle
 
         sorted_nodes = self.engine._topological_sort(self.graph)
         self.assertEqual(sorted_nodes, [])
@@ -71,5 +74,6 @@ class TestEngine(unittest.TestCase):
         # Verify that node3 received the correct inputs
         self.node3.execute.assert_called_once_with(input1=42, input2=84)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

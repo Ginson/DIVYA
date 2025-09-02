@@ -3,6 +3,7 @@ from unittest.mock import Mock
 import numpy as np
 from nodes.built_in.display.display_image import DisplayNode
 
+
 class TestDisplayImage(unittest.TestCase):
     def test_image_display_signal(self):
         node = DisplayNode()
@@ -32,5 +33,6 @@ class TestDisplayImage(unittest.TestCase):
         mock_slot.assert_called_once()
         self.assertEqual(mock_slot.call_args[0][0].size, 0)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

@@ -3,7 +3,9 @@ import os
 from PyQt6.QtWidgets import QApplication
 
 # Add the project root to the Python path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.insert(
+    0, os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+)
 
 from app.main_window import MainWindow
 from app.node_editor.node import Node
@@ -11,6 +13,7 @@ from nodes.built_in.display.load_image import LoadImageNode
 from nodes.built_in.display.blur_node import BlurNode
 from nodes.built_in.filters.canny_edge import CannyNode
 from nodes.built_in.display.display_image import DisplayNode
+
 
 def main():
     # --- GUI Setup ---
@@ -35,13 +38,18 @@ def main():
 
     # 3.5. Connect the nodes
     import sys
+
+
 import os
 from PyQt6.QtWidgets import QApplication
 
 # Add the project root to the Python path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.insert(
+    0, os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+)
 
 from app.main_window import MainWindow
+
 
 def main():
     # --- GUI Setup ---
@@ -50,10 +58,15 @@ def main():
     main_win.show()
     sys.exit(app.exec())
 
+
 if __name__ == "__main__":
     main()
-    main_win.graph.add_edge(blur_node_data.id, "image", canny_node_data.id, "image")
-    main_win.graph.add_edge(canny_node_data.id, "image", display_node_data.id, "image")
+    main_win.graph.add_edge(
+        blur_node_data.id, "image", canny_node_data.id, "image"
+    )
+    main_win.graph.add_edge(
+        canny_node_data.id, "image", display_node_data.id, "image"
+    )
 
     # 4. Create the visual representations
     load_node_ui = Node(load_node_data)
@@ -76,7 +89,7 @@ if __name__ == "__main__":
     blur_node_ui.setPos(400, 100)
     canny_node_ui.setPos(700, 100)
     display_node_ui.setPos(1000, 100)
-    
+
     main_win.show()
     sys.exit(app.exec())
 

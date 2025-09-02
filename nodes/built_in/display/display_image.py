@@ -3,8 +3,10 @@ from typing import Dict
 import numpy as np
 from PyQt6.QtCore import pyqtSignal
 
+
 class DisplayNode(BaseNode):
     """A node that displays an image in the UI."""
+
     category = "Display"
     description = "Displays an image in the main UI."
     # Define a signal that will carry the image data (as a numpy array)
@@ -22,5 +24,5 @@ class DisplayNode(BaseNode):
         else:
             print("  > DisplayNode: No image to display.")
             # Emit a None value to clear the display
-            self.image_processed.emit(np.array([])) 
+            self.image_processed.emit(np.array([]))
         return {}

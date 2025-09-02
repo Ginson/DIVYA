@@ -1,6 +1,7 @@
 import unittest
 from nodes.base_node import BaseNode
 
+
 # A concrete implementation of BaseNode for testing
 class ConcreteNode(BaseNode):
     def __init__(self, name, inputs, outputs, parameters=None):
@@ -9,13 +10,14 @@ class ConcreteNode(BaseNode):
     def execute(self, **kwargs) -> dict:
         return {"result": 42}
 
+
 class TestBaseNode(unittest.TestCase):
     def test_initialization(self):
         node = ConcreteNode(
             name="Test Node",
             inputs=["in1"],
             outputs=["out1"],
-            parameters={"p1": 10}
+            parameters={"p1": 10},
         )
         self.assertIsNotNone(node.id)
         self.assertEqual(node.name, "Test Node")
@@ -38,5 +40,6 @@ class TestBaseNode(unittest.TestCase):
         self.assertIn("MyNode", repr(node))
         self.assertIn(node.id, repr(node))
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

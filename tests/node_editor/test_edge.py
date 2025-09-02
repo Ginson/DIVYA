@@ -1,5 +1,6 @@
 import unittest
 
+
 @unittest.skip("Skipping GUI tests")
 class TestEdgeConnections(unittest.TestCase):
     def test_create_edge(self):
@@ -10,5 +11,6 @@ class TestEdgeConnections(unittest.TestCase):
         # Test edge manipulation logic
         self.assertTrue(True)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

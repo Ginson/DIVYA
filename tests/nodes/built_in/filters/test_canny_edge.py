@@ -2,6 +2,7 @@ import unittest
 import numpy as np
 from nodes.built_in.filters.canny_edge import CannyNode
 
+
 class TestCannyEdgeFilter(unittest.TestCase):
     def test_edge_detection(self):
         node = CannyNode()
@@ -22,5 +23,6 @@ class TestCannyEdgeFilter(unittest.TestCase):
         result = node.execute(image=None)
         self.assertIsNone(result.get("image"))
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

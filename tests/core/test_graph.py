@@ -2,15 +2,18 @@ import unittest
 from app.core.graph import Graph, Edge
 from nodes.base_node import BaseNode
 
+
 # A mock BaseNode for testing purposes
 class MockNode(BaseNode):
     category = "Test"
+
     def __init__(self, node_id, name="Test Node"):
         super().__init__(name=name, inputs=[], outputs=[])
         self.id = node_id
 
     def execute(self, **kwargs):
         return {}
+
 
 class TestGraph(unittest.TestCase):
     def setUp(self):
@@ -54,9 +57,9 @@ class TestGraph(unittest.TestCase):
         self.graph.add_node(self.node1)
         self.graph.add_node(self.node2)
         self.graph.add_edge("node1", "output1", "node2", "input1")
-        
+
         self.graph.remove_node("node1")
-        
+
         self.assertNotIn("node1", self.graph.nodes)
         edge_id = "node1:output1->node2:input1"
         self.assertNotIn(edge_id, self.graph.edges)
@@ -66,9 +69,10 @@ class TestGraph(unittest.TestCase):
         self.graph.add_node(self.node2)
         edge_id = "node1:output1->node2:input1"
         self.graph.add_edge("node1", "output1", "node2", "input1")
-        
+
         self.graph.remove_edge(edge_id)
         self.assertNotIn(edge_id, self.graph.edges)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()

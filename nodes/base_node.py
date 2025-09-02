@@ -5,17 +5,26 @@ import uuid
 from typing import Any, Dict
 from PyQt6.QtCore import QObject
 
+
 # --- Metaclass for combining QObject and ABC ---
 # This resolves the metaclass conflict between PyQt's QObject and Python's ABC
 class QObjectABCMeta(type(QObject), ABCMeta):
     pass
+
 
 class BaseNode(QObject, ABC, metaclass=QObjectABCMeta):
     """
     An abstract base class for all processing nodes in the graph.
     Inherits from QObject to support signals and ABC for abstract methods.
     """
-    def __init__(self, name: str, inputs: list[str], outputs: list[str], parameters: Dict[str, Any] = None):
+
+    def __init__(
+        self,
+        name: str,
+        inputs: list[str],
+        outputs: list[str],
+        parameters: Dict[str, Any] = None,
+    ):
         """
         Initializes the node.
         """
@@ -24,7 +33,7 @@ class BaseNode(QObject, ABC, metaclass=QObjectABCMeta):
         self.name: str = name
         self.inputs: list[str] = inputs
         self.outputs: list[str] = outputs
-        
+
         self.param_values: Dict[str, Any] = parameters if parameters else {}
 
     @abstractmethod
@@ -39,7 +48,9 @@ class BaseNode(QObject, ABC, metaclass=QObjectABCMeta):
         if param_name in self.param_values:
             self.param_values[param_name] = value
         else:
-            raise KeyError(f"Node '{self.name}' has no parameter named '{param_name}'.")
+            raise KeyError(
+                f"Node '{self.name}' has no parameter named '{param_name}'."
+            )
 
     def __repr__(self) -> str:
         """Provides a developer-friendly representation of the node."""
